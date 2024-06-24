@@ -1,0 +1,80 @@
+:root {
+    --headingTitle: "PT Sans", sans-serif;
+    --headingText: "Open Sans", sans-serif;
+
+    --red: #ffc09f;
+    --yellow: #ffee93;
+    --cream: #fcf5c7;
+    --blue: #a0ced9;
+    --green: #adf7b6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--headingTitle);
+}
+
+body {
+    font-family: var(--headingText);
+}
+
+button {
+    all: unset;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+/* .border {
+    border-color: black !important;
+} */
+
+.ls-1 {
+    letter-spacing: 0.5rem;
+}
+
+.image {
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.levels {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid black;
+    background-color: #dcdcdc;
+    border-radius: 1rem;
+}
+
+.move {
+    cursor: grab;
+}
+
+.move:active {
+    cursor: grabbing;
+}
+
+.color-circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+}
+
+.red {
+    background-color: var(--red);
+}
+.yellow {
+    background-color: var(--yellow);
+}
+.cream {
+    background-color: var(--cream);
+}
+.blue {
+    background-color: var(--blue);
+}
+.green {
+    background-color: var(--green);
+}
