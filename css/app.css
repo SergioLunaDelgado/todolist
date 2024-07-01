@@ -40,7 +40,7 @@ textarea {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
-.levels {
+.sortables {
     padding: 1rem;
     margin: 1rem 0;
     border: 1px solid black;
