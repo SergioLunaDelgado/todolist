@@ -44,10 +44,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="TaskLabel">Crear tarea por hacer</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="btnClose_task" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form id="taskLevel">
+                    <div class="modal-body">
                         <div class="mb-3">
                             <label for="title" class="form-label">Titulo</label>
                             <input type="text" class="form-control" id="title"
@@ -62,23 +62,27 @@
                             <div class="col-4">
                                 <label for="tag" class="form-label">Etiqueta</label>
                                 <select id="tag" class="form-select" required>
-                                    <option value="Proyecto">Proyecto</option>
+                                    <option value="Deploy">Deploy</option>
+                                    <option value="Documentacion">Documentación</option>
                                     <option value="Incidencia">Incidencia</option>
+                                    <option value="Programar">Programar</option>
+                                    <option value="Testing">Testing</option>
                                 </select>
                             </div>
                             <div class="col-4">
                                 <label for="status" class="form-label">Estatus</label>
                                 <select id="status" class="form-select" required>
-                                    <option value="Proyecto">En Proceso</option>
-                                    <option value="Incidencia">Pendiente</option>
-                                    <option value="Incidencia">Detenido</option>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Analizando">Analizando</option>
+                                    <option value="Detenido">Detenido</option>
+                                    <option value="Evaluando">Evaluando</option>
+                                    <option value="Pendiente">Pendiente</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <label for="status" class="form-label">Nivel</label>
-                                <select id="status" class="form-select" required>
-                                    <option value="Urgente">Urgente</option>
-                                    <option value="Esta semana">Esta semana</option>
+                                <label for="id_level" class="form-label">Nivel</label>
+                                <select id="id_level" class="form-select">
+                                    <option value="" selected disabled>Sin Nivel</option>
                                 </select>
                             </div>
                         </div>
@@ -87,70 +91,11 @@
                             <textarea class="form-control" id="comments"
                                 placeholder="Ticket, usuario, notas de seguimiento"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Crear</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Item -->
-    <div class="modal fade" id="Item" tabindex="-1" aria-labelledby="ItemLabel" aria-hidden="true" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ItemLabel">Modifica la tarea</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" id="title"
-                                placeholder="Escribe el titulo de la tarea" value="Enviar correo al proveedor" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="activity" class="form-label">Actividad</label>
-                            <textarea class="form-control" id="activity"
-                                placeholder="Especifica las actividades por hacer"
-                                required>Definir bien los requerimientos y contactar a los proveedores solicitando una sesión con el usuario</textarea>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-4">
-                                <label for="tag" class="form-label">Etiqueta</label>
-                                <select id="tag" class="form-select" required>
-                                    <option value="Proyecto">Proyecto</option>
-                                    <option value="Incidencia">Incidencia</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <label for="status" class="form-label">Estatus</label>
-                                <select id="status" class="form-select" required>
-                                    <option value="Proyecto">En Proceso</option>
-                                    <option value="Incidencia">Pendiente</option>
-                                    <option value="Incidencia">Detenido</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <label for="status" class="form-label">Nivel</label>
-                                <select id="status" class="form-select" required>
-                                    <option value="Urgente">Urgente</option>
-                                    <option value="Esta semana">Esta semana</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="comments" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="comments"
-                                placeholder="Ticket, usuario, notas de seguimiento">Antes de las 4</textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Actualizar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -161,35 +106,47 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="LevelLabel">Crear un nivel de prioridad</h1>
-                    <button type="button" id="btnClose_level" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="btnClose_level" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <form id="levelForm">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="nameLevel" class="form-label">Nombre (opcional)</label>
-                            <input type="text" class="form-control" id="nameLevel" placeholder="Escribe el nombre del nivel">
+                            <input type="text" class="form-control" id="nameLevel"
+                                placeholder="Escribe el nombre del nivel">
                         </div>
                         <label class="form-label">Elige un color</label>
                         <div class="row justify-content-between mb-3">
                             <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center gap-2 gap-lg-0">
                                 <input type="radio" id="red" name="color" value="red">
-                                <div class="color-circle red"></div>
+                                <label for="red">
+                                    <div class="color-circle red"></div>
+                                </label>
                             </div>
                             <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center gap-2 gap-lg-0">
                                 <input type="radio" id="yellow" name="color" value="yellow">
-                                <div class="color-circle yellow"></div>
+                                <label for="yellow">
+                                    <div class="color-circle yellow"></div>
+                                </label>
                             </div>
                             <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center gap-2 gap-lg-0">
                                 <input type="radio" id="cream" name="color" value="cream">
-                                <div class="color-circle cream"></div>
+                                <label for="cream">
+                                    <div class="color-circle cream"></div>
+                                </label>
                             </div>
                             <div class="col-4 col-md-3 col-lg-2 mt-3 mt-md-0 d-flex align-items-center gap-2 gap-lg-0">
                                 <input type="radio" id="blue" name="color" value="blue">
-                                <div class="color-circle blue"></div>
+                                <label for="blue">
+                                    <div class="color-circle blue"></div>
+                                </label>
                             </div>
                             <div class="col-4 col-md-3 col-lg-2 mt-3 mt-lg-0 d-flex align-items-center gap-2 gap-lg-0">
                                 <input type="radio" id="green" name="color" value="green">
-                                <div class="color-circle green"></div>
+                                <label for="green">
+                                    <div class="color-circle green"></div>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -201,38 +158,10 @@
         </div>
     </div>
 
-    <!-- Modal Delete -->
-    <div class="modal fade" id="Delete" tabindex="-1" aria-labelledby="DelenteLabel" aria-hidden="true" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="DelenteLabel">¿Estas seguro de borrar la tarea?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content-center gap-5">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar</button>
-                    <button type="button" class="btn btn-primary" onclick="deleteData('a', 1)">Borrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <main class="container my-5">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <div id="workspace" class="sortables image">
-
-                    <div class="d-flex justify-content-between mb-2 p-2 border rounded">
-                        <button type="button" class="w-100" data-bs-toggle="modal" data-bs-target="#Item">
-                            <i class="move bi bi-arrow-right-short"></i>
-                            <span class="">Enviar correo al proveedor</span>
-                        </button>
-                        <button type="button" aria-label="Borrar" data-bs-toggle="modal" data-bs-target="#Delete"><i
-                                class="bi bi-trash"></i></button>
-
-                    </div>
-
-                </div>
+                <div id="workspace" class="sortables shadow"></div>
             </div>
         </div>
     </main>

@@ -28,15 +28,11 @@ textarea {
     overflow: hidden;
 }
 
-/* .border {
-    border-color: black !important;
-} */
-
 .ls-1 {
     letter-spacing: 0.5rem;
 }
 
-.image {
+.shadow {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
