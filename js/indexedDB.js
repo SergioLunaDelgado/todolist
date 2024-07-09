@@ -76,7 +76,7 @@ function deleteData(table, id, nameModal) {
     request.onsuccess = function (event) {
         if (table === 'level') {
             updateIdLevelToTask(id);
-            windows.location.reload();
+            location.reload();
             
             // const contenedor = document.querySelector('#level' + id);
             // console.log(contenedor);
@@ -330,7 +330,7 @@ function print(table, data, id = null) {
             updateLevel.addEventListener('click', e => {
                 e.preventDefault();
                 const nameNew = document.querySelector(`#nameLevel${id_db}`).value;
-                const colorNew = document.querySelector(`input[name="color${id_db}'"]:checked`);
+                const colorNew = document.querySelector(`input[name="color${id_db}"]:checked`);
 
                 if (nameNew === null || nameNew.length > '13') {
                     alert('Reduce el nombre del nivel');
